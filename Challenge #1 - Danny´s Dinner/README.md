@@ -56,7 +56,7 @@ GROUP BY sales.customer_id
 ORDER BY sales.customer_id ASC; 
 ````
 
-#### Result of query:
+### Result of query:
 | customer_id | total_sales |
 | ----------- | ----------- |
 | A           | 76          |
@@ -79,7 +79,7 @@ SELECT
 FROM dannys_diner.sales
 GROUP BY customer_id;
 ````
-#### Result of query:
+### Result of query:
 | customer_id | visit_count |
 | ----------- | ----------- |
 | A           | 4          |
@@ -116,7 +116,7 @@ FROM ordered_sales
 WHERE rank = 1
 GROUP BY customer_id, product_name;
 ````
-#### Result of Query:
+### Result of Query:
 | customer_id | product_name | 
 | ----------- | ----------- |
 | A           | curry        | 
@@ -144,7 +144,7 @@ GROUP BY menu.product_name
 ORDER BY most_purchased_item DESC
 LIMIT 1;
 ````
-#### Result of Query:
+### Result of Query:
 | most_purchased | product_name | 
 | ----------- | ----------- |
 | 8       | ramen |
@@ -219,7 +219,7 @@ WHERE row_num = 1
 ORDER BY customer_id ASC;
 ```
 
-#### Result of Query:
+### Result of Query:
 | customer_id | product_name |
 | ----------- | ---------- |
 | A           | ramen        |
@@ -257,7 +257,7 @@ WHERE rank = 1
 ORDER BY p_member.customer_id ASC;
 ````
 
-#### Resutl of Query:
+### Resutl of Query:
 | customer_id | product_name |
 | ----------- | ---------- |
 | A           | sushi        |
@@ -284,7 +284,7 @@ INNER JOIN dannys_diner.menu
 GROUP BY sales.customer_id
 ORDER BY sales.customer_id;
 ```
-#### Result of Query:
+### Result of Query:
 | customer_id | total_items | total_sales |
 | ----------- | ---------- |----------  |
 | A           | 2 |  25       |
@@ -318,7 +318,7 @@ INNER JOIN points_cte
 GROUP BY sales.customer_id
 ORDER BY sales.customer_id;
 ```
-#### Result of Query:
+### Result of Query:
 | customer_id | total_points | 
 | ----------- | ---------- |
 | A           | 860 |
@@ -362,7 +362,7 @@ INNER JOIN dannys_diner.menu
   ON sales.product_id = menu.product_id
 GROUP BY sales.customer_id;
 ```
-#### Result of Query:
+### Result of Query:
 | customer_id | total_points | 
 | ----------- | ---------- |
 | A           | 1020 |
