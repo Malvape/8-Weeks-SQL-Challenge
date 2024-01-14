@@ -1,13 +1,12 @@
 # 🍜 Case Study #1: Danny's Diner 
-<img src="https://user-images.githubusercontent.com/81607668/127727503-9d9e7a25-93cb-4f95-8bd0-20b87cb4b459.png" alt="Image" width="500" height="520">
+
+![image](https://github.com/Malvape/8-Weeks-SQL-Challenge/assets/41355722/919eeea5-31f9-461d-9005-d39b1f17516b)
 
 ## 📚 Index
-- [Introduction](#Introduction)
-- [Problem Statement](#Problem_Statement)
-- [Entity Relationship Diagram](#entity-relationship-diagram)
-- [Question and Solution](#question-and-solution)
-
-Please note that all the information regarding the case study has been sourced from the following link: [here](https://8weeksqlchallenge.com/case-study-1/). 
+- [Introduction](##Introduction)
+- [Problem Statement](##Problem-Statement)
+- [Entity Relationship Diagram](##entity-relationship-diagram)
+- [Problems Solution](##Problems-Solution)
 
 ***
 
@@ -16,7 +15,7 @@ Danny seriously loves Japanese food so in the beginning of 2021, he decides to e
 
 ***
 
-## Problem_Statement
+## Problem Statement
 
 Danny wants to use the data to answer a few simple questions about his customers, especially about their visiting patterns, how much money they’ve spent and also which menu items are their favourite. Having this deeper connection with his customers will help him deliver a better and more personalised experience for his loyal customers.
 
@@ -34,18 +33,16 @@ Danny has shared with you 3 key datasets for this case study:
 
 ## Entity Relationship Diagram
 
-![image](https://user-images.githubusercontent.com/81607668/127271130-dca9aedd-4ca9-4ed8-b6ec-1e1920dca4a8.png)
+![image](https://github.com/Malvape/8-Weeks-SQL-Challenge/assets/41355722/33f36b4a-8fc7-43a6-bad0-bedd3b64e7a4)
 
 ***
+## Problems Solution
 
-## Questions and Solutions
+<details>
+  <summary><b>1. What is the total amount each customer spent at the restaurant?</b></summary>
 
-Danny has published the tables and the questions on [DB Fiddle](https://www.db-fiddle.com/f/2rM8RAnq7h5LLDTzZiRWcd/138). i´m doing this proyect on *PostgreSQL*.
-
-
-**1. What is the total amount each customer spent at the restaurant?**
-### Query
-````sql
+  ### Query
+  ````sql
 SELECT 
   sales.customer_id, 
   SUM(menu.price) AS total_sales
@@ -56,21 +53,19 @@ GROUP BY sales.customer_id
 ORDER BY sales.customer_id ASC; 
 ````
 
-### Result of query:
-| customer_id | total_sales |
-| ----------- | ----------- |
-| A           | 76          |
-| B           | 74          |
-| C           | 36          |
+  ### Result
+  | customer_id | total_sales |
+  | ----------- | ----------- |
+  | A           | 76          |
+  | B           | 74          |
+  |   C         | 36          |
 
-### Answer:
-- Customer A spent $76.
-- Customer B spent $74.
-- Customer C spent $36.
+</details>
 
 ***
+<details>
+  <summary><b>2. How many days has each customer visited the restaurant?</b></summary>
 
-**2. How many days has each customer visited the restaurant?**
 ### Query
 ````sql
 SELECT 
@@ -79,22 +74,19 @@ SELECT
 FROM dannys_diner.sales
 GROUP BY customer_id;
 ````
-### Result of query:
+### Result
 | customer_id | visit_count |
 | ----------- | ----------- |
 | A           | 4          |
 | B           | 6          |
 | C           | 2          |
 
-### Answer:
-- Customer A visited 4 times.
-- Customer B visited 6 times.
-- Customer C visited 2 times.
-
+</details>
 ***
+<details>
+  <summary><b>3. What was the first item from the menu purchased by each customer?</b></summary>
 
-**3. What was the first item from the menu purchased by each customer?**
-### Query:
+### Query
 ````sql
 WITH ordered_sales AS (
   SELECT 
@@ -116,7 +108,7 @@ FROM ordered_sales
 WHERE rank = 1
 GROUP BY customer_id, product_name;
 ````
-### Result of Query:
+### Result
 | customer_id | product_name | 
 | ----------- | ----------- |
 | A           | curry        | 
@@ -124,15 +116,12 @@ GROUP BY customer_id, product_name;
 | B           | curry        | 
 | C           | ramen        |
 
-### Answer:
-- Customer A placed an order for both curry and sushi simultaneously, making them the first items in the order.
-- Customer B's first order is curry.
-- Customer C's first order is ramen.
-
+</details>
 ***
+<details>
+  <summary><b>4. What is the most purchased item on the menu and how many times was it purchased by all customers?</b></summary>
 
-**4. What is the most purchased item on the menu and how many times was it purchased by all customers?**
-### Query:
+### Query
 ````sql
 SELECT 
   menu.product_name,
@@ -144,14 +133,11 @@ GROUP BY menu.product_name
 ORDER BY most_purchased_item DESC
 LIMIT 1;
 ````
-### Result of Query:
+### Result
 | most_purchased | product_name | 
 | ----------- | ----------- |
 | 8       | ramen |
-
-### Answer:
-- Most purchased item on the menu is ramen by 8 times.
-
+</details>
 ***
 
 **5. Which item was the most popular for each customer?**
