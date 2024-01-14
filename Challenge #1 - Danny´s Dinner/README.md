@@ -58,7 +58,7 @@ ORDER BY sales.customer_id ASC;
   | ----------- | ----------- |
   | A           | 76          |
   | B           | 74          |
-  |   C         | 36          |
+  | C.          | 36          |
 
 </details>
 
@@ -82,6 +82,7 @@ GROUP BY customer_id;
 | C           | 2          |
 
 </details>
+
 ***
 <details>
   <summary><b>3. What was the first item from the menu purchased by each customer?</b></summary>
@@ -117,6 +118,7 @@ GROUP BY customer_id, product_name;
 | C           | ramen        |
 
 </details>
+
 ***
 <details>
   <summary><b>4. What is the most purchased item on the menu and how many times was it purchased by all customers?</b></summary>
@@ -138,10 +140,13 @@ LIMIT 1;
 | ----------- | ----------- |
 | 8       | ramen |
 </details>
-***
 
-**5. Which item was the most popular for each customer?**
-### Query:
+
+***
+<details>
+  <summary><b>5. Which item was the most popular for each customer?</b><summary>
+
+### Query
 ````sql
 WITH most_popular AS (
   SELECT 
@@ -164,7 +169,7 @@ SELECT
 FROM most_popular 
 WHERE rank = 1;
 ````
-#### Result of Query:
+### Result
 | customer_id | product_name | order_count |
 | ----------- | ---------- |------------  |
 | A           | ramen        |  3   |
@@ -173,11 +178,13 @@ WHERE rank = 1;
 | B           | ramen        |  2   |
 | C           | ramen        |  3   |
 
+</details>
 
 ***
-
-**6. Which item was purchased first by the customer after they became a member?**
-### Query:
+<details>
+  <summary><b>6. Which item was purchased first by the customer after they became a member?</b><summary>
+ 
+### Query
 ```sql
 WITH joined_as_member AS (
   SELECT
@@ -202,20 +209,19 @@ WHERE row_num = 1
 ORDER BY customer_id ASC;
 ```
 
-### Result of Query:
+### Result
 | customer_id | product_name |
 | ----------- | ---------- |
 | A           | ramen        |
 | B           | sushi        |
 
-### Answer:
-- Customer A's first order as a member is ramen.
-- Customer B's first order as a member is sushi.
+</details>
 
 ***
 
-**7. Which item was purchased just before the customer became a member?**
-### Query:
+</details>
+  <summary><b>7. Which item was purchased just before the customer became a member?</b><summary>
+### Query
 ````sql
 WITH purchased_prior_member AS (
   SELECT 
@@ -240,14 +246,13 @@ WHERE rank = 1
 ORDER BY p_member.customer_id ASC;
 ````
 
-### Resutl of Query:
+### Resutl
 | customer_id | product_name |
 | ----------- | ---------- |
 | A           | sushi        |
 | B           | sushi        |
 
-### Answer:
-- Sushi in both cases.
+</details>
 
 ***
 
