@@ -3,10 +3,10 @@
 ![image](https://github.com/Malvape/8-Weeks-SQL-Challenge/assets/41355722/919eeea5-31f9-461d-9005-d39b1f17516b)
 
 ## 📚 Index
-- [Introduction](##Introduction)
-- [Problem Statement](##Problem-Statement)
-- [Entity Relationship Diagram](##entity-relationship-diagram)
-- [Problems Solution](##Problems-Solution)
+- [Introduction](#introduction)
+- [Problem Statement](#problem-statement)
+- [Entity Relationship Diagram](#entity-relationship-diagram)
+- [Problems Solution](#problems-solution)
 
 ***
 
@@ -173,9 +173,6 @@ WHERE rank = 1;
 | B           | ramen        |  2   |
 | C           | ramen        |  3   |
 
-### Answer:
-- Customer A and C's favourite item is ramen.
-- Customer B enjoys all items on the menu. He/she is a true foodie, sounds like me.
 
 ***
 
