@@ -1,4 +1,4 @@
-# 8-Week-SQL-Challenge
+# 8-Weeks-SQL-Challenge
 
 Here are my solutions to the [8 weeks sql challenge](https://8weeksqlchallenge.com/) of danny ma, there he gives you the option to use an online platform to deploy your schemas, and execute queries against them, but i took the opportunity to use **Docker** and **Dbeaver** to manage my **Postgresql** database. 
 
