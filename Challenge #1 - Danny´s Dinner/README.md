@@ -144,10 +144,10 @@ LIMIT 1;
 
 ***
 <details>
-  <summary><b>5. Which item was the most popular for each customer?</b><summary>
+  <summary><b>5. Which item was the most popular for each customer?</b></summary>
 
 ### Query
-````sql
+```sql
 WITH most_popular AS (
   SELECT 
     sales.customer_id, 
@@ -168,7 +168,7 @@ SELECT
   order_count
 FROM most_popular 
 WHERE rank = 1;
-````
+```
 ### Result
 | customer_id | product_name | order_count |
 | ----------- | ---------- |------------  |
@@ -182,7 +182,7 @@ WHERE rank = 1;
 
 ***
 <details>
-  <summary><b>6. Which item was purchased first by the customer after they became a member?</b><summary>
+  <summary><b>6. Which item was purchased first by the customer after they became a member?</b></summary>
  
 ### Query
 ```sql
@@ -219,10 +219,11 @@ ORDER BY customer_id ASC;
 
 ***
 
-</details>
-  <summary><b>7. Which item was purchased just before the customer became a member?</b><summary>
+<details>
+  <summary><b>7. Which item was purchased just before the customer became a member?</b></summary>
 ### Query
-````sql
+
+```sql
 WITH purchased_prior_member AS (
   SELECT 
     members.customer_id, 
@@ -244,7 +245,7 @@ INNER JOIN dannys_diner.menu
   ON p_member.product_id = menu.product_id
 WHERE rank = 1
 ORDER BY p_member.customer_id ASC;
-````
+```
 
 ### Resutl
 | customer_id | product_name |
@@ -255,9 +256,11 @@ ORDER BY p_member.customer_id ASC;
 </details>
 
 ***
+<details>
+  <summary><b>8. What is the total items and amount spent for each member before they became a member?</b></summary>
 
-**8. What is the total items and amount spent for each member before they became a member?**
-### Query:
+### Query
+
 ```sql
 SELECT 
   sales.customer_id, 
@@ -272,21 +275,19 @@ INNER JOIN dannys_diner.menu
 GROUP BY sales.customer_id
 ORDER BY sales.customer_id;
 ```
-### Result of Query:
+### Result
 | customer_id | total_items | total_sales |
 | ----------- | ---------- |----------  |
 | A           | 2 |  25       |
 | B           | 3 |  40       |
 
-### Answer:
-Before becoming members,
-- Customer A spent $25 on 2 items.
-- Customer B spent $40 on 3 items.
-
+</details>
 ***
+<details>
+  <summary><b>9. If each $1 spent equates to 10 points and sushi has a 2x points multiplier — how many points would each customer have?</b></summary>
 
-**9. If each $1 spent equates to 10 points and sushi has a 2x points multiplier — how many points would each customer have?**
-### Query:
+### Query
+
 ```sql
 WITH points_cte AS (
   SELECT 
@@ -306,22 +307,20 @@ INNER JOIN points_cte
 GROUP BY sales.customer_id
 ORDER BY sales.customer_id;
 ```
-### Result of Query:
+### Result
 | customer_id | total_points | 
 | ----------- | ---------- |
 | A           | 860 |
 | B           | 940 |
 | C           | 360 |
-
-### Answer:
-- Total points for Customer A is $860.
-- Total points for Customer B is $940.
-- Total points for Customer C is $360.
+</details>
 
 ***
+<details>
+  <summary><b>10. In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi — how many points do customer A and B have at the end of January?</b></summary>
 
-**10. In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi — how many points do customer A and B have at the end of January?**
-### Query:
+### Query
+
 ```sql
 WITH dates_cte AS (
   SELECT 
@@ -356,8 +355,5 @@ GROUP BY sales.customer_id;
 | A           | 1020 |
 | B           | 320 |
 
-### Answer:
-- Total points for Customer A is 1,020.
-- Total points for Customer B is 320.
 
 ***
