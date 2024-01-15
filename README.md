@@ -1,6 +1,10 @@
 # 8-Week-SQL-Challenge
 
-Colocar una introduccion y mencionar las herramientas y proceso.
+Here are my solutions to the [8 weeks sql challenge](https://8weeksqlchallenge.com/) of danny ma, there he gives you the option to use an online platform to deploy your schemas, and execute queries against them, but i took the opportunity to use **Docker** and **Dbeaver** to manage my **Postgresql** database. 
+
+<img width="1100" alt="image" src="https://github.com/Malvape/8-Weeks-SQL-Challenge/assets/41355722/0cf3b836-2517-4298-988c-1a4d65010890">
+
+<img width="835" alt="image" src="https://github.com/Malvape/8-Weeks-SQL-Challenge/assets/41355722/1b80d52e-eb91-4e58-bc60-00ec00425f49">
 
 
 | Name                                       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                        | Status               |
