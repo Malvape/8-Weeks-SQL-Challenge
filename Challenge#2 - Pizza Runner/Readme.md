@@ -58,9 +58,9 @@ from customer_orders co ;
 ````
 
   #### Result
-pizzas_ordered|
---------------+
-            14|
+| number_of_pizza_ordered |
+| ----------------------- |
+| 14                      |
             
 </details>
 
@@ -75,9 +75,9 @@ count(distinct order_id) as unique_customers_orders
 from customer_orders co ;
 ````
 ### Result
-unique_customers_orders|
------------------------+
-                     10|
+|unique_customers_orders|
+|-----------------------|
+|                     10|
 
 </details>
 
@@ -95,11 +95,11 @@ where pickup_time <> 'null'
 group by runner_id ;
 ````
 ### Result
-runner_id|delivered_orders|
----------+----------------+
-        1|               4|
-        2|               3|
-        3|               1|
+|runner_id|delivered_orders|
+|---------|----------------|
+|        1|               4|
+|        2|               3|
+|        3|               1|
 
 </details>
 
@@ -120,10 +120,10 @@ where pickup_time <> 'null'
 group by pn.pizza_name ;
 ````
 ### Result
-pizza_name|pizzas_delivered|
-----------+----------------+
-Meatlovers|               9|
-Vegetarian|               3|
+|pizza_name|pizzas_delivered|
+|----------|----------------|
+|Meatlovers|               9|
+|Vegetarian|               3|
 
 </details>
 
@@ -146,16 +146,16 @@ group by pn.pizza_name,
 co.customer_id;
 ````
 ### Result
-customer_id|pizza_name|pizzas_ordered|
------------+----------+--------------+
-        101|Vegetarian|             1|
-        103|Meatlovers|             3|
-        105|Vegetarian|             1|
-        104|Meatlovers|             3|
-        101|Meatlovers|             2|
-        103|Vegetarian|             1|
-        102|Meatlovers|             2|
-        102|Vegetarian|             1|
+|customer_id|pizza_name|pizzas_ordered|
+|-----------|----------|--------------|
+|        101|Vegetarian|             1|
+|        103|Meatlovers|             3|
+|        105|Vegetarian|             1|
+|        104|Meatlovers|             3|
+|        101|Meatlovers|             2|
+|        103|Vegetarian|             1|
+|        102|Meatlovers|             2|
+|        102|Vegetarian|             1|
 
 </details>
 
@@ -176,9 +176,9 @@ order by count(co.pizza_id) desc
 limit 1; 
 ````
 ### Result
-order_id|pizzas_ordered|
---------+--------------+
-       4|             3|
+|order_id|pizzas_ordered|
+|--------|--------------|
+|       4|             3|
 
 </details>
 
@@ -215,13 +215,13 @@ order by co.customer_id ASC;
 
 ````
 ### Result
-customer_id|changes|no_changes|
------------+-------+----------+
-        101|      0|         2|
-        102|      0|         3|
-        103|      3|         0|
-        104|      2|         1|
-        105|      1|         0|
+|customer_id|changes|no_changes|
+|-----------|-------|----------|
+|        101|      0|         2|
+|        102|      0|         3|
+|        103|      3|         0|
+|        104|      2|         1|
+|        105|      1|         0|
 
 </details>
 
@@ -242,9 +242,9 @@ and (exclusions is not null and exclusions <>'null' and LENGTH(exclusions) >0)
 
 ````
 ### Result
-pizzas_delivered_with_exclusions_and_extras|
--------------------------------------------+
-                                          1|
+|pizzas_delivered_with_exclusions_and_extras|
+|-------------------------------------------|
+|                                          1|
 
 </details>
 
@@ -263,14 +263,14 @@ group by date_part('hour', order_time);
 
 ````
 ### Result
-hour|pizzas_ordered|
-----+--------------+
-18.0|             3|
-23.0|             3|
-21.0|             3|
-11.0|             1|
-19.0|             1|
-13.0|             3|
+|hour|pizzas_ordered|
+|----|--------------|
+|18.0|             3|
+|23.0|             3|
+|21.0|             3|
+|11.0|             1|
+|19.0|             1|
+|13.0|             3|
 
 </details>
 
@@ -293,12 +293,12 @@ ORDER BY
 
 ````
 ### Result
-day_of_week|number_of_pizzas|
------------+----------------+
-Wednesday  |               5|
-Thursday   |               3|
-Friday     |               1|
-Saturday   |               5|
+|day_of_week|number_of_pizzas|
+|-----------|----------------|
+|Wednesday  |               5|
+|Thursday   |               3|
+|Friday     |               1|
+|Saturday   |               5|
 
 </details>
 
